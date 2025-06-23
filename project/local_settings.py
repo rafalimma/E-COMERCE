@@ -11,7 +11,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ecomerce',
         'USER': 'rafa',
-        'PASSWORD': 'rafa!12335db',
+        'PASSWORD': 'rafa!123d',
         'HOST': 'localhost',
         'PORT': '5432',
     }
