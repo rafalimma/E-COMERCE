@@ -48,6 +48,7 @@ class Perfil(models.Model):
 
     def __str__(self):
         return f'{self.usuario.first_name} {self.usuario.last_name}'
+    
     def clean(self):
         error_messages = {}
         if not validar_cpf(self.cpf):
