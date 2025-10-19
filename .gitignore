@@ -13,6 +13,7 @@ home/__pycache__/
 home/__pycache__/urls.cpython-311.pyc
 home/__pycache__/views.cpython-311.pyc
 views.cpython-311.pyc
+templates/static/assets/*
 
 # Backup files # 
 *.bak 
