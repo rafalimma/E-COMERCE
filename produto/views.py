@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views import View
 from django.http import HttpResponse
+from . import models
 
 # Create your views here.
 
@@ -12,8 +13,8 @@ def login(request):
     return render(request, 'login.html')
 
 class ListaProdutos(ListView):
-    def get(self, request, *args, **kwargs):
-        return HttpResponse("Página de lista de produtos")
+    model = models.Produto
+    template_name = 'produto/lista.html'
 
 class DetalheProduto(View):
     def get(self, request, *args, **kwargs):
