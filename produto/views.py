@@ -15,6 +15,8 @@ def login(request):
 class ListaProdutos(ListView):
     model = models.Produto
     template_name = 'produto/lista.html'
+    context_object_name = 'produtos'
+    paginated_by = 10
 
 class DetalheProduto(View):
     def get(self, request, *args, **kwargs):
