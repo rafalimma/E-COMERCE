@@ -29,7 +29,7 @@
                                 {% endif %}
                             </p>
 
-                            <form action="{ url 'produto.adicionarcarrinho' }" id="form-add-to-cart">
+                            <form action="{% url 'produtos:adicionarcarrinho' %}" method="get" id="form-add-to-cart">
                                 <div class="form-group">
                                     <select id="select-variacoes" name="vid" class="form-control form-control-lg">
                                         {% for variacao in produtos.variacao_set.all %}
