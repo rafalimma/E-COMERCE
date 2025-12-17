@@ -8,6 +8,8 @@ from . import models
 from pprint import pprint
 # Create your views here.
 
+# SUPERUSER _> rafa 1234
+
 def home(request):
     return render(request, 'home.html')
 
@@ -103,7 +105,8 @@ class RemoverCarrinho(View):
 
 class Carrinho(View):
     def get(self, request, *args, **kwargs):
-        return render(self.request, 'carrinho.html')
+        print('entrou no get')
+        return render(self.request, 'produto/carrinho.html')
 
 class Finalizar(View):
     def get(self, request, *args, **kwargs):
