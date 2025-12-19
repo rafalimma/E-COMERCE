@@ -18,10 +18,10 @@
             </li>
             {% else %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'perfil:criar' %}">Entrar</a>
+                <a class="nav-link" href="#">Entrar</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'perfil:criar' %}">Criar conta</a>
+                <a class="nav-link" href="#">Criar conta</a>
             </li>
             {% endif %}
 
@@ -32,7 +32,7 @@
                         Carrinho
                     </span>
                     <span class="nav-cart-count mr-1">
-                        <strong>{{ request.session.carrinho|card_total_qtd }}x</strong>
+                        <strong>{{ request.session.carrinho }}x</strong>
                     </span>
                     <span class="nav-cart-icon mr-2">
                         <i class="fas fa-shopping-cart"></i>
@@ -43,7 +43,7 @@
 
 
         </ul>
-        <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'produtos:busca' %}">
+        <form class="form-inline my-2 my-lg-0" method="GET" action="#">
             <input name="termo" value="{{ request.GET.termo }}" class="form-control mr-sm-2" type="search"
                 placeholder="Busca" aria-label="Busca">
             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Busca</button>
