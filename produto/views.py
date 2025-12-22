@@ -118,9 +118,11 @@ class RemoverCarrinho(View):
 
         carrinho = self.request.session['carrinho']
 
+        nome_produto = carrinho[variacao_id]['produto_nome']
+
         messages.success(
             self.request,
-            f'Produto {carrinho["produto_nome"]} removido do seu carrinho.'
+            f'Produto {nome_produto} removido do seu carrinho.'
         )
 
         del self.request.session['carrinho'][variacao_id]
@@ -130,7 +132,8 @@ class RemoverCarrinho(View):
 class Carrinho(View):
     def get(self, request, *args, **kwargs):
         print('entrou no get')
-        return render(self.request, 'produto/carrinho.html')
+        contexto = {'carrinho': request.session.get('carrinho', {})}
+        return render(self.request, 'produto/carrinho.html', contexto)
 
 class Finalizar(View):
     def get(self, request, *args, **kwargs):
