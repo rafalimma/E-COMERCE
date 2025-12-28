@@ -135,6 +135,6 @@ class Carrinho(View):
         contexto = {'carrinho': request.session.get('carrinho', {})}
         return render(self.request, 'produto/carrinho.html', contexto)
 
-class Finalizar(View):
+class ResumoDaCompra(View):
     def get(self, request, *args, **kwargs):
         return HttpResponse("Página de finalização de compra")

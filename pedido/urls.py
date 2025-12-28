@@ -5,7 +5,7 @@ app_name = 'pedido'
 
 urlpatterns = [
     path('', views.Pagar.as_view(), name='pagar'),
-    path('fechar_pedido/', views.FecharPedido.as_view(), name='fechar_pedido'),
+    path('salvarpedido/', views.salvarPedido.as_view(), name='salvarpedido'),
     path('detalhe/', views.Detalhe.as_view(), name='detalhe'),
 
 ]
