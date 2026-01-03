@@ -10,7 +10,16 @@
     <div class="col-lg">
         <h1>Cadastro</h1>
         <form action="" method="POST">
+            {% csrf_token %}
             {{ userform|crispy }}
+            {{ perfilform|crispy }}
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary btn-block btn-lg">
+                        Enviar
+                    </button>
+                </div>
+            </div>
         </form>
     </div>
 </div>
