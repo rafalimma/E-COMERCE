@@ -1,12 +1,13 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.list import ListView
 from django.views import View
 from django.http import HttpResponse
 from . import forms
 from . import models
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 import copy
+from django.contrib import messages
 # Create your views here.
 
 class BasePerfil(View):
@@ -106,8 +107,13 @@ class Criar(BasePerfil):
                 )
                 if autentica:
                     login(self.request, user=usuario)
+
         self.request.session['carrinho'] = self.carrinho
         self.request.session.save()
+
+        messages.success(self.request, 'Seu cadastro foi criado ou atualizado com sucesso')
+        messages.success(self.request, 'Seu cadastro foi criado ou atualizado com sucesso')
+
         return self.renderizar
 
 class Atualizar(View):
@@ -115,9 +121,11 @@ class Atualizar(View):
         return HttpResponse("Página de atualização de perfil")
     
 class Login(View):
-    def get(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         return HttpResponse("Página de login")
 
 class Logout(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponse("Página de logout")
+        carrinho = copy.deepcopy(self.request.session.get('carrinho'))
+        logout(self.request)
+        return redirect('produto:lista')

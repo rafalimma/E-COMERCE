@@ -9,7 +9,7 @@ class Perfil(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     idade = models.PositiveIntegerField
     data_nascimento = models.DateField()
-    cpd = models.CharField(max_length=11)
+    cpf = models.CharField(max_length=11)
     endereco = models.CharField(max_length=255)
     numero = models.CharField(max_length=20)
     complemento = models.CharField(max_length=50, blank=True, null=True)
